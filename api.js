@@ -15,6 +15,8 @@ router.post("/shorturl", async (req, res) => {
         return;
     }
 
+    const url = new URL(Url);
+
     const FoundShortcut = UrlShortcuts.find((item, index) => { return item.original_url == Url});
 
     if (FoundShortcut)
@@ -23,7 +25,7 @@ router.post("/shorturl", async (req, res) => {
         return;
     }
 
-    rawUrl = Url.slice(8);
+    rawUrl = url.hostname;
     console.log(rawUrl);
 
     dns.lookup(rawUrl, (err, address, family) => {
