@@ -38,7 +38,7 @@ router.post("/shorturl", async (req, res) => {
 })
 
 router.get("/shorturl/:short_url?", (req, res) => {
-    const shortUrl = req.params.short_url;
+    const shortUrl = parseInt(req.params.short_url);
 
     const FoundShortcut = UrlShortcuts.find((item, index) => { return item.short_url == shortUrl});
 
