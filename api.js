@@ -4,7 +4,7 @@ var UrlShortcuts = [];
 var count = -1;
 
 router.post("/shorturl", async (req, res) => {
-    const urlPattern = /^https\:\/\/\w+\.\w+\.\w+$/
+    const urlPattern = /^https\:\/\/\w+\.\w+\.\w+/
     const Url = req.body.url;
     let rawUrl;
     console.log(`Url:${Url}||Pattern:${!urlPattern.test(Url)}`);
